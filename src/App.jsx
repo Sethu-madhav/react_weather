@@ -11,7 +11,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_KEY = "97ff617856b160741a9e2e64cf55d2f9";
+  const API_KEY = process.env.WEATHER_API_KEY;
+
   const defaultLocation = "New York";
 
   const fetchWeatherData = async (location) => {
@@ -83,7 +84,7 @@ function App() {
   }, []);
 
   return (
-    <div className='w-full h-full relative'>
+    <div className='min-h-screen w-full h-full relative bg-cover bg-center' style={{ backgroundImage: "url('src/assets/weather-bg.jpg')" }}>
       <div className='text-center p-4'>
         <div className="relative mx-auto w-[700px]">
           <Autosuggest
