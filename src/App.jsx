@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 import axios from 'axios';
 import Autosuggest from 'react-autosuggest';
 import Weather from './components/weather';
+import './App.css';
 
 function App() {
   const [data, setData] = useState({});
@@ -55,7 +55,7 @@ function App() {
   const getSuggestionValue = (suggestion) => suggestion.name;
 
   const renderSuggestion = (suggestion) => (
-    <div>
+    <div className="px-4 py-2 cursor-pointer hover:bg-blue-500 hover:text-white">
       {suggestion.name}, {suggestion.country}
     </div>
   );
@@ -75,6 +75,7 @@ function App() {
         setLocation("");
       }
     },
+    className: 'w-full py-3 px-6 text-lg rounded-3xl border border-gray-200 text-blue-400 placeholder:text-gray-400 focus:outline-none bg-gray-200/100 shadow-md'
   };
 
   useEffect(() => {
@@ -84,15 +85,24 @@ function App() {
   return (
     <div className='w-full h-full relative'>
       <div className='text-center p-4'>
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          onSuggestionSelected={onSuggestionSelected}
-          inputProps={inputProps}
-        />
+        <div className="relative mx-auto w-[700px]">
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={onSuggestionsClearRequested}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            onSuggestionSelected={onSuggestionSelected}
+            inputProps={inputProps}
+            theme={{
+              container: 'relative',
+              suggestionsContainer: 'absolute z-10 w-full bg-white border-gray-300 rounded-b-lg shadow-lg',
+              suggestionsList: 'm-0 p-0 list-none',
+              suggestion: 'px-4 py-2 cursor-pointer',
+              suggestionHighlighted: 'bg-blue-500 text-white'
+            }}
+          />
+        </div>
       </div>
       {loading ? (
         <div className="text-center text-blue-400">Loading...</div>
