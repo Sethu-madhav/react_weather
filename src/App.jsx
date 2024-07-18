@@ -85,7 +85,7 @@ function App() {
   }, []);
 
   return (
-    <div className='min-h-screen w-full h-full relative bg-cover bg-center' style={{ backgroundImage: "url('src/assets/weather-bg.jpg')" }}>
+    <div className='min-h-screen w-full h-full relative bg-cover bg-center' style={{ backgroundImage: "url('/weather-bg.jpg')" }}>
       <div className='text-center p-4'>
         <div className="relative mx-auto w-[700px]">
           <Autosuggest
