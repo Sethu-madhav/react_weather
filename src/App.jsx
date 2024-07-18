@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Autosuggest from 'react-autosuggest';
 import Weather from './components/weather';
-import './App.css';
+import './index.css';
+
 
 function App() {
   const [data, setData] = useState({});
