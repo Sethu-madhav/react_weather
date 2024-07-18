@@ -1,5 +1,7 @@
 # 🌤️ Simple Weather App 🌏
 
+Try here : https://react-weather-three-chi.vercel.app/
+
 Weather app is a personal project built while learning React and Tailwind CSS. It uses the OpenWeather API to provide real-time weather updates from around the world.
 
 🔍 With auto-suggestion for search, finding your city’s weather is super easy! Just start typing in the search and watch suggestions pop up! ✨
